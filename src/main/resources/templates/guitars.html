@@ -15,6 +15,39 @@
           <a class="navbar-brand" href="/guitars">Guitars</a>
         </div>
       </nav>
+      <div th:switch="${guitars}" class="container my-5">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 th:case="null">No guitars yet!</h2>
+            <div th:case="*">
+              <h2 class="my-5">Guitars</h2>
+              <table class="table table-striped table-responsive-md">
+                <thead>
+                  <tr>
+                    <th>Manufacturer</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Year</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="guitar : ${guitars}">
+                    <td th:text="${guitar.manufacturer}">Manufacturer</td>
+                    <td th:text="${guitar.model}">Model</td>
+                    <td th:text="${guitar.color}">Color</td>
+                    <td th:text="${guitar.year}">Year</td>
+                    <td><a th:href="@{/guitars/{id}(id=${guitar.id})}" class="btn btn-primary">Edit</a></td>
+                    <td><a th:href="@{/guitars/{id}/delete(id=${guitar.id})}" class="btn btn-danger">Delete</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="my-5"><a href="/guitar" class="btn btn-primary">Add Guitar</a></p>
+          </div>
+        </div>
+      </div>
     </body>
   </html>
 </html>
