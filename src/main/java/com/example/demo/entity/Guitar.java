@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Guitar {
@@ -27,8 +28,8 @@ public class Guitar {
     private String color;
 
     @Column(nullable = false)
-    @NotBlank(message = "Year is required")
-    private String year;
+    @NotNull(message = "Year is required")
+    private Integer year;
 
     public Long getId() {
         return id;
@@ -62,11 +63,11 @@ public class Guitar {
         this.color = color;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 }

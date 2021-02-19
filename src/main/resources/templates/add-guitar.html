@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="year" class="col-form-label">Year</label>
-                  <input type="text" th:field="*{year}" class="form-control" id="year" required />
+                  <input type="number" th:field="*{year}" class="form-control" id="year" required />
                   <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" class="text-danger"></span>
                 </div>
               </div>
