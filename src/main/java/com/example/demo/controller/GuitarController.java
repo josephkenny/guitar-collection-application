@@ -5,6 +5,7 @@ import com.example.demo.repository.GuitarRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,13 +38,6 @@ public class GuitarController {
         return "update-guitar";
     }
 
-    @GetMapping("/guitars/{id}/delete")
-    public String deleteGuitar(@PathVariable Long id, Model model) {
-        guitarRepository.deleteById(id);
-        model.addAttribute("guitars", guitarRepository.findAll());
-        return "guitars";
-    }
-
     @PostMapping("/guitars")
     public String saveGuitar(@Valid Guitar guitar, BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -60,6 +54,13 @@ public class GuitarController {
             return "update-guitar";
         }
         guitarRepository.save(guitar);
+        model.addAttribute("guitars", guitarRepository.findAll());
+        return "guitars";
+    }
+
+    @DeleteMapping("/guitars/{id}")
+    public String deleteGuitar(@PathVariable Long id, Model model) {
+        guitarRepository.deleteById(id);
         model.addAttribute("guitars", guitarRepository.findAll());
         return "guitars";
     }

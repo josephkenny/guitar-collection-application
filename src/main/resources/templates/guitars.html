@@ -39,7 +39,9 @@
                     <td th:text="${guitar.color}">Color</td>
                     <td th:text="${guitar.year}">Year</td>
                     <td><a th:href="@{/guitars/{id}(id=${guitar.id})}" class="btn btn-primary">Edit</a></td>
-                    <td><a th:href="@{/guitars/{id}/delete(id=${guitar.id})}" class="btn btn-danger">Delete</a></td>
+                    <td><form action="#" th:action="@{/guitars/{id}(id=${guitar.id})}" th:method="DELETE">
+                      <button type="submit" class="btn btn-danger">Delete</button></td>
+                    </form>
                   </tr>
                 </tbody>
               </table>
