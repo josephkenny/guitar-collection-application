@@ -45,7 +45,7 @@ public class GuitarController {
         }
         guitarRepository.save(guitar);
         model.addAttribute("guitars", guitarRepository.findAll());
-        return "guitars";
+        return "redirect:/guitars";
     }
 
     @PostMapping("/guitars/{id}")
@@ -55,13 +55,13 @@ public class GuitarController {
         }
         guitarRepository.save(guitar);
         model.addAttribute("guitars", guitarRepository.findAll());
-        return "guitars";
+        return "redirect:/guitars";
     }
 
     @DeleteMapping("/guitars/{id}")
     public String deleteGuitar(@PathVariable Long id, Model model) {
         guitarRepository.deleteById(id);
         model.addAttribute("guitars", guitarRepository.findAll());
-        return "guitars";
+        return "redirect:/guitars";
     }
 }
