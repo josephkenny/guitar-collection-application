@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Update Guitar - Guitar Collection Database</title>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css" rel="stylesheet" />
+      <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+      <div class="container my-5">
+        <h2 class="mb-5">Update Guitar</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <form action="#" th:action="@{/guitars/{id}(id=${guitar.id})}" th:object="${guitar}" method="POST">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="manufacturer" class="col-form-label">Manufacturer</label>
+                  <input type="text" th:field="*{manufacturer}" class="form-control" id="name" required />
+                  <span th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="model" class="col-form-label">Model</label>
+                  <input type="text" th:field="*{model}" class="form-control" id="model" required />
+                  <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="color" class="col-form-label">Color</label>
+                  <input type="text" th:field="*{color}" class="form-control" id="color" required />
+                  <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="year" class="col-form-label">Year</label>
+                  <input type="number" th:field="*{year}" class="form-control" id="year" required />
+                  <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-5">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</html>
