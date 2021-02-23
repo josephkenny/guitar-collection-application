@@ -12,7 +12,7 @@
 * Spring Boot
 * Maven
 
-## JAR File
+### JAR File
 
 You can build a JAR file and run it from the command line:
 
@@ -22,7 +22,7 @@ You can build a JAR file and run it from the command line:
 4. ```java -jar target/*.jar```
 5. Visit http://localhost:8080 in your web browser.
 
-## Import Project in IDE
+### Import Project in IDE
 
 If you would like to work with the project in your IDE then follow these steps:
 
