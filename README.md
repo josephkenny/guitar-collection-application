@@ -1,12 +1,10 @@
 ## guitar-collection-application
 
-![alt text](heroku.svg "Heroku deployed badge")
-
 ![alt text](demo-screenshot.PNG "Demo screenshot")
 
 ### Live Demo
 
-[Live Demo](https://guitar-collection-application.herokuapp.com)
+[Live Demo](https://guitar-collection-application.up.railway.app)
 
 ### Built With
 
